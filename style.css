@@ -1120,10 +1120,17 @@ nav.scrolled { background: rgba(4,8,15,0.92); }
 /* ════════════════════════════════════════
    FOOTER
 ════════════════════════════════════════ */
+/* ── FOOTER VISIBILITY FIX ── */
 footer {
-  position: relative; z-index: 2;
-  border-top: 1px solid var(--edge2);
-  padding: 3rem clamp(1.25rem,5vw,3rem) 2rem;
+  background: var(--ink);           /* solid bg so canvas doesn't bleed through */
+  isolation: isolate;               /* creates stacking context */
+  position: relative;
+  z-index: 10;                      /* above the fixed canvas (z-index: 0) */
+}
+
+#cta {
+  position: relative;
+  z-index: 10;
 }
 .footer-inner { max-width: 1080px; margin: 0 auto; }
 .footer-top {
@@ -1426,4 +1433,21 @@ footer {
   background: #ef4444;
   box-shadow: 0 0 7px #ef4444;
   flex-shrink: 0;
+}
+/* ────────────────────────────────────────
+   FOOTER VISIBILITY — SURGICAL FIX
+   Canvas (position:fixed, z-index:0) bleeds
+   through the footer. Solid bg blocks it.
+───────────────────────────────────────── */
+footer {
+  background: var(--ink2);
+  isolation: isolate;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 3rem;
+}
+
+#cta {
+  position: relative;
+  z-index: 10;
 }
