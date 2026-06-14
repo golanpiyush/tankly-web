@@ -382,5 +382,64 @@
     if (c) c.style.display = 'none';
     document.querySelectorAll('.bbl').forEach(b => b.style.animation = 'none');
   }
+// ── CAROUSEL ──
+(function () {
+  const track = document.getElementById('carouselMain');
+  const dotsEl = document.getElementById('dotsMain');
+  if (!track || !dotsEl) return;
 
+  const slides = track.querySelectorAll('.carousel-slide');
+  const total = slides.length;
+  let current = 0;
+  let timer;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'c-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('role', 'button');
+    d.setAttribute('aria-label', 'Go to screenshot ' + (i + 1));
+    d.addEventListener('click', () => { goTo(i); resetTimer(); });
+    dotsEl.appendChild(d);
+  });
+  const dots = dotsEl.querySelectorAll('.c-dot');
+
+  function goTo(idx) {
+    current = (idx + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 3400);
+  }
+
+  goTo(0);
+  resetTimer();
+})();
+
+// Arc animation
+const arcFill = document.getElementById('healthArcFill');
+const arcScore = document.getElementById('healthArcScore');
+if (arcFill && arcScore) {
+  const arcObs = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    arcObs.disconnect();
+    let start = null;
+    const target = 87;
+    const dash = 220;
+    function step(ts) {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / 1600, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      arcFill.style.strokeDashoffset = dash - ease * (dash - (dash - (target / 100) * dash));
+      arcScore.textContent = Math.round(ease * target);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }, { threshold: 0.3 });
+  const hCard = document.querySelector('.f-card--health');
+  if (hCard) arcObs.observe(hCard);
+}
 })();
