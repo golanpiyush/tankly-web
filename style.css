@@ -66,14 +66,26 @@ ul { list-style: none; }
   pointer-events: none;
   overflow: hidden;
 }
+/* ── BUBBLES — fewer, blue-green tones ── */
 .bbl {
   position: absolute;
   bottom: -50px;
   border-radius: 50%;
-  border: 1px solid rgba(0,196,168,0.22);
+  border: 1px solid rgba(0,180,220,0.28);   /* blue-green border */
   opacity: 0;
   animation: bblRise linear infinite;
+  background: radial-gradient(circle at 40% 35%, rgba(0,220,200,0.12), transparent 70%);
 }
+
+/* hide half the bubbles to reduce count */
+
+/* recolor the remaining ones individually */
+.b1  { border-color: rgba(0,196,168,0.30); }
+.b2  { border-color: rgba(0,150,255,0.25); }
+.b5  { border-color: rgba(0,210,190,0.28); }
+.b7  { border-color: rgba(30,160,255,0.22); }
+.b9  { border-color: rgba(0,196,168,0.25); }
+.b12 { border-color: rgba(0,140,255,0.20); }
 .b1  { left: 4%;  width:8px;  height:8px;  animation-duration:20s; animation-delay:0s; }
 .b2  { left: 11%; width:5px;  height:5px;  animation-duration:26s; animation-delay:4s; }
 .b3  { left: 19%; width:12px; height:12px; animation-duration:22s; animation-delay:8s; }
@@ -86,6 +98,7 @@ ul { list-style: none; }
 .b10 { left: 91%; width:10px; height:10px; animation-duration:19s; animation-delay:9s; }
 .b11 { left: 47%; width:4px;  height:4px;  animation-duration:32s; animation-delay:16s; }
 .b12 { left: 67%; width:6px;  height:6px;  animation-duration:25s; animation-delay:7s; }
+.b3, .b4, .b6, .b8, .b10, .b11 { display: none; }
 
 @keyframes bblRise {
   0%   { transform: translateY(0);           opacity: 0; }
