@@ -617,7 +617,44 @@
     </div>
   </div>
 </footer>
+<!-- ── BG ENVIRONMENT ── -->
+<div id="bg-env" aria-hidden="true">
+  <div class="wave w1"></div>
+  <div class="wave w2"></div>
+  <div class="wave w3"></div>
+</div>
 
+<script>
+(function(){
+  const env = document.getElementById('bg-env');
+  if (!env) return;
+  const cfg = [
+    { s:6,  d:0,   c:'rgba(0,196,168,0.22)',  dur:22 },
+    { s:4,  d:3,   c:'rgba(0,150,255,0.18)',  dur:30 },
+    { s:9,  d:7,   c:'rgba(0,210,190,0.15)',  dur:18 },
+    { s:5,  d:12,  c:'rgba(30,160,255,0.14)', dur:26 },
+    { s:7,  d:5,   c:'rgba(0,196,168,0.12)',  dur:34 },
+    { s:3,  d:18,  c:'rgba(0,180,240,0.16)',  dur:20 },
+    { s:11, d:9,   c:'rgba(0,220,200,0.10)',  dur:28 },
+    { s:4,  d:22,  c:'rgba(0,140,255,0.13)',  dur:38 },
+    { s:6,  d:15,  c:'rgba(0,196,168,0.09)',  dur:42 },
+    { s:8,  d:2,   c:'rgba(20,170,255,0.11)', dur:24 },
+  ];
+  cfg.forEach((b, i) => {
+    const el = document.createElement('div');
+    el.className = 'env-bbl';
+    el.style.cssText = `
+      width:${b.s}px; height:${b.s}px;
+      left:${8 + i * 9}%;
+      bottom:-${b.s}px;
+      border-color:${b.c};
+      animation-duration:${b.dur}s;
+      animation-delay:${b.d}s;
+    `;
+    env.appendChild(el);
+  });
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 <script src="main.js" defer></script>
 </body>
