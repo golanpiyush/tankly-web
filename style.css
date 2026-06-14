@@ -1464,3 +1464,67 @@ footer {
   position: relative;
   z-index: 10;
 }
+/* ── DEEP BG ENVIRONMENT ── */
+#bg-env {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(180deg,
+    #020810 0%,
+    #041018 25%,
+    #051420 55%,
+    #030e18 80%,
+    #020a14 100%
+  );
+}
+
+/* wave layers */
+#bg-env .wave {
+  position: absolute;
+  left: -20%;
+  width: 140%;
+  border-radius: 40%;
+  opacity: 0.07;
+  animation: waveRotate linear infinite;
+}
+#bg-env .w1 {
+  height: 520px; bottom: -260px;
+  background: radial-gradient(ellipse, #00c4a8, #0050a0);
+  animation-duration: 18s;
+}
+#bg-env .w2 {
+  height: 400px; bottom: -200px;
+  background: radial-gradient(ellipse, #0090c8, #00c4a8);
+  animation-duration: 24s;
+  animation-direction: reverse;
+  opacity: 0.05;
+}
+#bg-env .w3 {
+  height: 300px; bottom: -150px;
+  background: radial-gradient(ellipse, #00c4a8, #004080);
+  animation-duration: 30s;
+  opacity: 0.04;
+}
+
+@keyframes waveRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* env bubbles */
+.env-bbl {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0,196,168,0.18);
+  background: radial-gradient(circle at 35% 30%, rgba(0,220,200,0.08), transparent 65%);
+  animation: envRise linear infinite;
+  pointer-events: none;
+}
+@keyframes envRise {
+  0%   { transform: translateY(0) translateX(0);  opacity: 0; }
+  8%   { opacity: 1; }
+  90%  { opacity: 0.4; }
+  100% { transform: translateY(-105vh) translateX(20px); opacity: 0; }
+}
