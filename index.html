@@ -78,94 +78,62 @@
     </p>
 
     <div class="hero-actions js-fade" data-delay="240">
-      <a href="#" class="btn-primary">🐠 Download Free</a>
-      <a href="#features" class="btn-ghost">
-        Explore Features
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <a href="https://play.google.com/store/apps/details?id=com.golanPiyush.tankly" class="store-badge-link" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+        <img src="ss/get_it_on_playstore.png" alt="Get it on Google Play" class="store-badge"/>
+      </a>
+<a href="waitlist-ios" class="store-badge-link" aria-label="Join iOS Waitlist">
+        <img src="ss/get_it_on_appstore.png" alt="Download on the App Store" class="store-badge store-badge--ios"/>
       </a>
     </div>
 
-    <!-- Phone showcase -->
-    <div class="hero-phones js-fade" data-delay="340" id="heroPhones">
-      <div class="phone-wrap phone-left">
-        <div class="phone-frame" data-float="slow">
+    <!-- Feature Graphic -->
+    <!-- <div class="hero-feature-graphic js-fade" data-delay="300">
+      <img src="ss/feature_graphic.png" alt="Tankly — Smart aquarium care in your pocket" class="feature-graphic-img"/>
+    </div> -->
+
+    <!-- Phone + carousel -->
+    <div class="hero-phones js-fade" data-delay="380" id="heroPhones">
+      <div class="phone-solo-wrap">
+        <div class="phone-frame phone-frame--solo" data-float="slow">
           <div class="phone-notch"><div class="phone-pill"></div></div>
-          <div class="phone-screen">
-            <div class="ps-top">
-              <div class="ps-greeting">Good morning</div>
-              <div class="ps-title">My Tanks</div>
-            </div>
-            <div class="ps-card">
-              <div class="ps-card-head">
-                <div>
-                  <div class="ps-card-name">Ruikin Palace</div>
-                  <div class="ps-card-type">Coldwater · 5G</div>
-                </div>
-                <div class="ps-health-badge">Thriving</div>
-              </div>
-              <div class="ps-health-bar"><div class="ps-health-fill" style="width:100%"></div></div>
-              <div class="ps-score-row">
-                <div class="ps-score-num">100<span>%</span></div>
-                <div class="ps-score-label">Tank Health</div>
-              </div>
-            </div>
-            <div class="ps-params-grid">
-              <div class="ps-param">
-                <div class="ps-param-k">pH</div>
-                <div class="ps-param-v good">7.4</div>
-              </div>
-              <div class="ps-param">
-                <div class="ps-param-k">Ammonia</div>
-                <div class="ps-param-v good">0.0</div>
-              </div>
-              <div class="ps-param">
-                <div class="ps-param-k">Nitrate</div>
-                <div class="ps-param-v warn">18</div>
-              </div>
-              <div class="ps-param">
-                <div class="ps-param-k">Temp</div>
-                <div class="ps-param-v good">64.8°F</div>
-              </div>
-            </div>
-            <div class="ps-fish-row">
-              <div class="ps-chip">🐡 Ryukin ×3</div>
-              <div class="ps-chip">🦐 Amano ×2</div>
-            </div>
+          <div class="phone-screen phone-screen--carousel">
+            <div class="carousel-track" id="carouselMain">
+            <img class="carousel-slide" src="ss/ss1.png" alt="Screenshot 1" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss2.png" alt="Screenshot 2" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss3.png" alt="Screenshot 3" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss4.png" alt="Screenshot 4" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss5.png" alt="Screenshot 5" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss6.png" alt="Screenshot 6" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss7.png" alt="Screenshot 7" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss8.png" alt="Screenshot 8" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss9.png" alt="Screenshot 9" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss10.png" alt="Screenshot 10" draggable="false"/>
+          <!-- APP SS -->
+            <img class="carousel-slide" src="ss/ss01.png" alt="Screenshot 1" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss02.png" alt="Screenshot 2" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss03.png" alt="Screenshot 3" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss04.png" alt="Screenshot 4" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss05.png" alt="Screenshot 5" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss06.jpeg" alt="Screenshot 6" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss07.jpeg" alt="Screenshot 7" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss08.png" alt="Screenshot 8" draggable="false"/>
+          <img class="carousel-slide" src="ss/ss09.jpeg" alt="Screenshot 9" draggable="false"/>
+          
           </div>
         </div>
+        <div class="carousel-dots-row" id="dotsMain" aria-label="Screenshot navigation"></div>
+        <div class="phone-glow"></div>
       </div>
-
-      <div class="phone-wrap phone-right">
-        <div class="phone-frame phone-frame--secondary" data-float="fast">
-          <div class="phone-notch"><div class="phone-pill"></div></div>
-          <div class="phone-screen phone-screen--alt">
-            <div class="ps-chart-header">Parameter History</div>
-            <div class="ps-chart-val">7.4 <span class="ps-chart-delta">+0.08</span></div>
-            <div class="ps-chart-label">pH · Optimal</div>
-            <div class="ps-chart-area">
-              <svg viewBox="0 0 160 60" preserveAspectRatio="none" aria-hidden="true">
-                <defs>
-                  <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#00c4a8" stop-opacity="0.35"/>
-                    <stop offset="100%" stop-color="#00c4a8" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <path d="M0 50 C20 48 40 44 60 40 C80 36 100 32 120 25 C140 18 155 12 160 10 L160 60 L0 60Z" fill="url(#cg)"/>
-                <path d="M0 50 C20 48 40 44 60 40 C80 36 100 32 120 25 C140 18 155 12 160 10" fill="none" stroke="#00c4a8" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <div class="ps-stats-row">
-              <div class="ps-stat"><div class="ps-stat-k">MIN</div><div class="ps-stat-v">7.2</div></div>
-              <div class="ps-stat"><div class="ps-stat-k">MAX</div><div class="ps-stat-v">7.4</div></div>
-              <div class="ps-stat"><div class="ps-stat-k">AVG</div><div class="ps-stat-v">7.3</div></div>
-              <div class="ps-stat"><div class="ps-stat-k">STABILITY</div><div class="ps-stat-v teal">90%</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="phone-glow"></div>
     </div>
+
+  </div>
+
+  <div class="scroll-cue js-fade" data-delay="600" aria-label="Scroll down">
+    <span>scroll</span>
+    <div class="scroll-cue-line"></div>
+  </div>
+</section>
+</div>
   </div>
 
   <div class="scroll-cue js-fade" data-delay="600" aria-label="Scroll down">
@@ -188,6 +156,42 @@
     </div>
 
     <div class="feature-grid">
+<!-- BIG: Tier Health System -->
+      <div class="f-card f-card--wide f-card--health js-reveal">
+        <div class="f-card-health-inner">
+          <div class="f-card-health-left">
+            <div class="f-icon f-icon--rose" aria-hidden="true">❤️</div>
+            <h3 class="f-title">Real-Time Tier Health Scoring</h3>
+            <p class="f-desc">Every score is calculated against your tank's exact volume, water type, and livestock mix — not a generic formula. Biological accuracy across four urgency tiers tells you not just <em>how bad</em> a reading is, but <em>how fast</em> it will harm your fish.</p>
+            <div class="tier-row">
+              <div class="tier-chip t1">Tier 1 <span>hours to harm</span></div>
+              <div class="tier-chip t2">Tier 2 <span>days</span></div>
+              <div class="tier-chip t3">Tier 3 <span>weeks</span></div>
+              <div class="tier-chip t4">Tier 4 <span>optimal</span></div>
+            </div>
+          </div>
+          <div class="f-card-health-right" aria-hidden="true">
+            <div class="health-arc-wrap">
+              <svg class="health-arc-svg" viewBox="0 0 160 100">
+                <path class="arc-bg" d="M20 90 A70 70 0 0 1 140 90" fill="none" stroke-width="10" stroke-linecap="round"/>
+                <path class="arc-fill" id="healthArcFill" d="M20 90 A70 70 0 0 1 140 90" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="220" stroke-dashoffset="220"/>
+                <text class="arc-score" x="80" y="82" text-anchor="middle" id="healthArcScore">0</text>
+                <text class="arc-label" x="80" y="96" text-anchor="middle">Tank Health</text>
+              </svg>
+            </div>
+            <div class="health-params-mini">
+              <div class="hpm-row"><span class="hpm-k">pH</span><span class="hpm-bar"><span class="hpm-fill" style="width:80%;background:#00c4a8"></span></span><span class="hpm-v hpm-ok">7.4</span></div>
+              <div class="hpm-row"><span class="hpm-k">NH₃</span><span class="hpm-bar"><span class="hpm-fill" style="width:5%;background:#10b981"></span></span><span class="hpm-v hpm-ok">0.0</span></div>
+              <div class="hpm-row"><span class="hpm-k">NO₃</span><span class="hpm-bar"><span class="hpm-fill" style="width:55%;background:#f59e0b"></span></span><span class="hpm-v hpm-warn">22</span></div>
+              <div class="hpm-row"><span class="hpm-k">Temp</span><span class="hpm-bar"><span class="hpm-fill" style="width:70%;background:#3b82f6"></span></span><span class="hpm-v hpm-ok">26°</span></div>
+            </div>
+            <div class="health-meta">
+              <div class="hm-chip">🪣 120L Reef</div>
+              <div class="hm-chip">🐠 8 livestock</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- BIG: Parameter logging -->
       <div class="f-card f-card--wide js-reveal">
@@ -253,12 +257,7 @@
         <p class="f-desc">Share builds, ask questions, and browse other hobbyists' setups — inside the app.</p>
       </div>
 
-      <!-- Health Score -->
-      <div class="f-card js-reveal" data-stagger="3">
-        <div class="f-icon f-icon--rose" aria-hidden="true">❤️</div>
-        <h3 class="f-title">Tank Health Score</h3>
-        <p class="f-desc">A single 0–100 score calibrated to your tank type, with tier-based biological accuracy.</p>
-      </div>
+    
 
     </div>
   </div>
@@ -410,6 +409,33 @@
 <div class="wave-sep" aria-hidden="true"></div>
 
 <!-- ════════════════════════════════════════
+     YOUTUBE
+════════════════════════════════════════ -->
+<section id="yt" aria-label="App walkthrough video">
+  <div class="wrap">
+    <div class="yt-inner">
+      <div class="eyebrow js-reveal">
+        <span class="yt-label-dot"></span>
+        Watch
+      </div>
+      <h2 class="section-h2 js-reveal" data-stagger="1">See Tankly<br><em>in action.</em></h2>
+      <p class="section-lead js-reveal" data-stagger="2" style="margin-inline:auto;text-align:center">
+        A quick walkthrough of Tankly's core smart health system.
+      </p>
+      <div class="yt-embed-wrap js-reveal" data-stagger="2">
+        <iframe
+          src="https://www.youtube.com/embed/NEgXCxyyAyc"
+          title="Tankly app walkthrough"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
      FAQ
 ════════════════════════════════════════ -->
 <section id="faq" aria-label="Frequently asked questions">
@@ -424,7 +450,7 @@
           ✉ golanlabs.apps@gmail.com →
         </a>
         <div class="js-reveal" data-stagger="4" style="margin-top:1rem">
-          <a href="index.html#hiw" class="faq-doc-link">→ Legal &amp; How it Works docs</a>
+          <a href="index#hiw" class="faq-doc-link">→ Legal &amp; How it Works docs</a>
         </div>
       </div>
 
@@ -543,9 +569,9 @@
       <h2 class="cta-title">Your fish deserve<br><em>better care.</em></h2>
       <p class="cta-sub">Download Tankly free. No credit card, no lock-in — just a smarter way to manage your aquarium.</p>
       <div class="cta-actions">
-        <a href="#" class="btn-primary">🐠 Download Tankly Free</a>
-        <a href="index.html" class="btn-ghost">View Docs →</a>
-      </div>
+  <a href="https://play.google.com/store/apps/details?id=com.golanPiyush.tankly" class="btn-primary" target="_blank" rel="noopener">🐠 Download on Google Play</a>
+  <a href="waitlist-ios" class="btn-ghost">📱 iOS Waitlist →</a>
+</div>
     </div>
   </div>
 </section>
