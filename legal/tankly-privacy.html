@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Tankly Privacy Policy — We only collect what we need. Your tank data is yours. Always."/>
+<title>Tankly — Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"/>
+<style>
+/* ── TOKENS (same as index) ── */
+:root {
+  --ink:     #04080f;
+  --ink2:    #070d18;
+  --surface: #0a1220;
+  --panel:   rgba(9,17,30,0.75);
+  --panel2:  rgba(12,21,38,0.88);
+  --edge:    rgba(0,196,168,0.10);
+  --edge2:   rgba(255,255,255,0.058);
+  --teal:    #00c4a8;
+  --teal2:   #6edcd0;
+  --teal3:   rgba(0,196,168,0.13);
+  --slate:   #8fa8bc;
+  --slate2:  #4a6880;
+  --white:   #e8f4f0;
+  --white2:  #f4faf8;
+  --purple:  #8b5cf6;
+  --amber:   #f59e0b;
+  --blue:    #3b82f6;
+  --rose:    #f43f5e;
+  --r-sm:    8px;
+  --r:       14px;
+  --r-lg:    20px;
+  --r-xl:    28px;
+  --fam:     'Cabin', sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--ink);
+  color:var(--slate);
+  font-family:var(--fam);
+  font-size:15px;
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--fam);cursor:pointer;border:none;background:none}
+ul{list-style:none}
+
+/* ── CANVAS ── */
+#hero-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.45}
+
+/* ── BUBBLES ── */
+.bubble-layer{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.bbl{position:absolute;bottom:-50px;border-radius:50%;border:1px solid rgba(0,196,168,0.22);opacity:0;animation:bblRise linear infinite}
+.b1{left:4%;width:8px;height:8px;animation-duration:20s;animation-delay:0s}
+.b2{left:11%;width:5px;height:5px;animation-duration:26s;animation-delay:4s}
+.b3{left:19%;width:12px;height:12px;animation-duration:22s;animation-delay:8s}
+.b4{left:29%;width:7px;height:7px;animation-duration:28s;animation-delay:12s}
+.b5{left:39%;width:9px;height:9px;animation-duration:18s;animation-delay:2s}
+.b6{left:51%;width:5px;height:5px;animation-duration:24s;animation-delay:10s}
+.b7{left:61%;width:13px;height:13px;animation-duration:21s;animation-delay:6s}
+.b8{left:72%;width:7px;height:7px;animation-duration:27s;animation-delay:14s}
+.b9{left:83%;width:5px;height:5px;animation-duration:23s;animation-delay:3s}
+.b10{left:91%;width:10px;height:10px;animation-duration:19s;animation-delay:9s}
+@keyframes bblRise{
+  0%{transform:translateY(0);opacity:0}
+  5%{opacity:1}
+  92%{opacity:0.3}
+  100%{transform:translateY(-110vh) translateX(16px);opacity:0}
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:400;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1.25rem,5vw,3rem);
+  background:rgba(4,8,15,0.55);
+  backdrop-filter:blur(22px) saturate(1.4);
+  -webkit-backdrop-filter:blur(22px) saturate(1.4);
+  border-bottom:1px solid var(--edge);
+  transition:background 0.3s;
+}
+nav.scrolled{background:rgba(4,8,15,0.92)}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{
+  width:32px;height:32px;border-radius:9px;
+  background:linear-gradient(140deg,#00c4a8,#0a7d6e);
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;box-shadow:0 0 16px rgba(0,196,168,0.32);flex-shrink:0;
+}
+.nav-wordmark{font-family:var(--fam);font-weight:700;font-size:17px;color:var(--white);letter-spacing:-0.02em}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{padding:6px 13px;border-radius:8px;font-size:13px;font-weight:600;color:var(--slate);transition:color 0.2s,background 0.2s}
+.nav-link:hover{color:var(--white);background:rgba(255,255,255,0.05)}
+.nav-link.active{color:var(--teal)}
+.nav-cta{
+  margin-left:8px;padding:7px 17px;border-radius:9px;font-size:13px;font-weight:700;
+  color:#040b10;background:var(--teal);box-shadow:0 0 20px rgba(0,196,168,0.26);
+  transition:box-shadow 0.2s,transform 0.15s,background 0.2s;
+}
+.nav-cta:hover{background:var(--teal2);box-shadow:0 0 32px rgba(0,196,168,0.45);transform:translateY(-1px)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;padding:6px}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--slate);border-radius:999px;transition:background 0.2s}
+@media(max-width:768px){.nav-links{display:none}.nav-hamburger{display:flex}}
+
+/* ── MOBILE MENU ── */
+.mobile-menu{
+  display:none;position:fixed;top:60px;left:0;right:0;
+  background:rgba(4,8,15,0.97);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--edge2);z-index:399;
+  padding:1rem 1.5rem 1.5rem;flex-direction:column;gap:0.2rem;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:15px;font-weight:600;color:var(--slate);padding:10px 0;border-bottom:1px solid var(--edge2);transition:color 0.2s}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--teal)}
+
+/* ── LAYOUT ── */
+.wrap{max-width:900px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);position:relative;z-index:2}
+section{position:relative;z-index:2}
+
+/* ── WAVE SEP ── */
+.wave-sep{position:relative;z-index:2;height:1px;overflow:visible}
+.wave-sep::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(0,196,168,0.28) 30%,rgba(110,220,208,0.18) 60%,transparent);
+  background-size:200% 100%;animation:shimmer 5s linear infinite;
+}
+@keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+/* ── REVEALS ── */
+.js-fade{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
+.js-fade.in{opacity:1;transform:translateY(0)}
+.js-reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.js-reveal.in{opacity:1;transform:translateY(0)}
+.js-reveal[data-stagger="1"]{transition-delay:0.08s}
+.js-reveal[data-stagger="2"]{transition-delay:0.16s}
+.js-reveal[data-stagger="3"]{transition-delay:0.24s}
+
+/* ── EYEBROW ── */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:1.1rem;
+}
+
+/* ── HERO ── */
+#hero{
+  min-height:50vh;display:flex;align-items:center;justify-content:center;
+  padding:120px clamp(1.25rem,5vw,3rem) 5rem;text-align:center;position:relative;
+}
+.hero-inner{max-width:660px;margin:0 auto}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,196,168,0.07);border:1px solid rgba(0,196,168,0.20);
+  border-radius:999px;padding:5px 15px 5px 10px;font-size:12px;font-weight:600;
+  color:var(--teal2);margin-bottom:2rem;backdrop-filter:blur(8px);
+}
+.badge-pulse{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2.2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(0,196,168,0.5)}50%{opacity:0.5;transform:scale(0.7);box-shadow:0 0 0 4px rgba(0,196,168,0)}}
+.hero-h1{
+  font-family:var(--fam);font-weight:700;
+  font-size:clamp(2.2rem,6vw,4rem);
+  color:var(--white);line-height:1.0;letter-spacing:-0.04em;
+}
+.hero-h1 em{
+  font-style:italic;font-weight:700;
+  background:linear-gradient(130deg,var(--teal),var(--teal2) 65%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;
+}
+.hero-sub{font-size:16px;color:var(--slate);margin:1.2rem auto 0;max-width:440px;line-height:1.8;font-weight:500}
+.updated-chip{
+  display:inline-flex;align-items:center;gap:6px;margin-top:1.6rem;
+  background:rgba(255,255,255,0.04);border:1px solid var(--edge2);
+  border-radius:999px;padding:4px 13px;font-size:11px;font-weight:600;color:var(--slate2);
+}
+
+/* ── SHIMMER SKELETON (for loading) ── */
+.skeleton{
+  background:linear-gradient(90deg,rgba(255,255,255,0.04) 25%,rgba(255,255,255,0.08) 50%,rgba(255,255,255,0.04) 75%);
+  background-size:200% 100%;animation:skelAnim 1.6s ease infinite;border-radius:8px;
+}
+@keyframes skelAnim{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* ── CONTENT AREA ── */
+#content{padding:3rem 0 6rem}
+
+.section-grid{display:grid;grid-template-columns:220px 1fr;gap:3rem;align-items:start}
+@media(max-width:760px){.section-grid{grid-template-columns:1fr;gap:1.5rem}}
+
+/* Sticky TOC */
+.toc{
+  position:sticky;top:80px;
+  background:var(--panel);border:1px solid var(--edge2);
+  border-radius:var(--r-lg);padding:1.4rem;
+  backdrop-filter:blur(14px);
+}
+.toc-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.13em;color:var(--teal);margin-bottom:1rem}
+.toc-list{display:flex;flex-direction:column;gap:2px}
+.toc-link{
+  font-size:12.5px;font-weight:600;color:var(--slate2);padding:6px 10px;
+  border-radius:8px;transition:color 0.2s,background 0.2s;display:block;
+}
+.toc-link:hover,.toc-link.active{color:var(--teal);background:var(--teal3)}
+@media(max-width:760px){.toc{display:none}}
+
+/* Policy cards */
+.policy-sections{display:flex;flex-direction:column;gap:0.75rem}
+
+.policy-card{
+  background:var(--panel);border:1px solid var(--edge2);
+  border-radius:var(--r-lg);padding:1.8rem 2rem;
+  backdrop-filter:blur(14px);
+  transition:border-color 0.3s,transform 0.25s;
+  position:relative;overflow:hidden;
+}
+.policy-card::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;opacity:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(0,196,168,0.05),transparent 55%);
+  transition:opacity 0.35s;pointer-events:none;
+}
+.policy-card:hover{border-color:var(--edge);transform:translateX(4px)}
+.policy-card:hover::before{opacity:1}
+
+.card-anchor{position:relative;top:-80px;visibility:hidden}
+
+.card-num{
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;
+  color:var(--slate2);margin-bottom:0.3rem;display:flex;align-items:center;gap:6px;
+}
+.card-num::before{
+  content:'';width:20px;height:1px;background:linear-gradient(90deg,var(--teal),transparent);
+}
+.card-h2{font-size:15.5px;font-weight:700;color:var(--white);margin-bottom:0.9rem;letter-spacing:-0.01em}
+.card-body{font-size:13.5px;color:var(--slate);line-height:1.75}
+.card-body p{margin-bottom:0.7rem}
+.card-body p:last-child{margin-bottom:0}
+.card-body ul{padding-left:1.2rem;margin:0.5rem 0 0.7rem}
+.card-body li{margin-bottom:0.35rem;list-style:disc}
+.card-body li::marker{color:var(--teal)}
+.card-body strong{color:var(--white);font-weight:600}
+.card-body a{color:var(--teal);transition:opacity 0.2s}
+.card-body a:hover{opacity:0.75}
+
+.card-tag{
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(0,196,168,0.07);border:1px solid rgba(0,196,168,0.15);
+  border-radius:999px;padding:3px 10px;font-size:11px;font-weight:600;color:var(--teal);margin-top:0.9rem;
+}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:2;border-top:1px solid var(--edge2);
+  padding:3rem clamp(1.25rem,5vw,3rem) 2rem;
+}
+.footer-inner{max-width:900px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:3rem;margin-bottom:2.4rem}
+@media(max-width:680px){.footer-top{grid-template-columns:1fr;gap:2rem}}
+.footer-brand-row{display:flex;align-items:center;gap:10px;margin-bottom:0.7rem}
+.footer-wordmark{font-family:var(--fam);font-weight:700;font-size:16px;color:var(--white);letter-spacing:-0.02em}
+.footer-brand p{font-size:13px;color:var(--slate2);line-height:1.7;max-width:270px}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--white);margin-bottom:0.9rem}
+.footer-col a{display:block;font-size:13px;color:var(--slate2);margin-bottom:0.45rem;transition:color 0.2s}
+.footer-col a:hover{color:var(--teal)}
+.footer-bottom{
+  border-top:1px solid var(--edge2);padding-top:1.3rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.7rem;
+  font-size:12px;color:var(--slate2);
+}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<canvas id="hero-canvas"></canvas>
+<div class="bubble-layer" aria-hidden="true">
+  <span class="bbl b1"></span><span class="bbl b2"></span><span class="bbl b3"></span>
+  <span class="bbl b4"></span><span class="bbl b5"></span><span class="bbl b6"></span>
+  <span class="bbl b7"></span><span class="bbl b8"></span><span class="bbl b9"></span>
+  <span class="bbl b10"></span>
+</div>
+
+<!-- NAV -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <a class="nav-brand" href="index.html" aria-label="Tankly home">
+    <div class="nav-logo" aria-hidden="true">🐠</div>
+    <span class="nav-wordmark">Tankly</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a class="nav-link" href="index.html#features">Features</a>
+    <a class="nav-link" href="index.html#plans">Plans</a>
+    <a class="nav-link active" href="tankly-privacy">Privacy</a>
+    <a class="nav-link" href="tankly-tos">Terms</a>
+    <a class="nav-link" href="waitlist-ios">iOS Waitlist</a>
+    <a class="nav-cta" href="#">Get Tankly</a>
+  </div>
+  <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+  <a href="index.html#features">Features</a>
+  <a href="index.html#plans">Plans</a>
+  <a class="active" href="tankly-privacy">Privacy</a>
+  <a href="tankly-tos">Terms</a>
+  <a href="waitlist-ios">iOS Waitlist</a>
+  <a href="#">Get Tankly →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero" aria-label="Privacy Policy">
+  <div class="hero-inner">
+    <div class="hero-badge js-fade" data-delay="0">
+      <span class="badge-pulse"></span>
+      Legal · Privacy Policy
+    </div>
+    <h1 class="hero-h1 js-fade" data-delay="80">
+      Your data,
+      <em>your rules.</em>
+    </h1>
+    <p class="hero-sub js-fade" data-delay="160">
+      We only collect what we need to run Tankly. Your tank data is yours — always.
+    </p>
+    <div class="updated-chip js-fade" data-delay="240">
+      🗓 Last updated: May 2026 · Version 1.0
+    </div>
+  </div>
+</section>
+
+<div class="wave-sep" aria-hidden="true"></div>
+
+<!-- CONTENT -->
+<section id="content">
+  <div class="wrap">
+    <div class="section-grid">
+
+      <!-- TOC -->
+      <aside class="toc js-reveal" aria-label="Table of contents">
+        <div class="toc-title">Contents</div>
+        <nav class="toc-list">
+          <a class="toc-link active" href="#s1">Who we are</a>
+          <a class="toc-link" href="#s2">What we collect</a>
+          <a class="toc-link" href="#s3">How we use it</a>
+          <a class="toc-link" href="#s4">Storage</a>
+          <a class="toc-link" href="#s5">Free vs Pro</a>
+          <a class="toc-link" href="#s6">Your rights</a>
+          <a class="toc-link" href="#s7">Children</a>
+          <a class="toc-link" href="#s8">Third parties</a>
+          <a class="toc-link" href="#s9">Changes</a>
+          <a class="toc-link" href="#s10">Contact</a>
+        </nav>
+      </aside>
+
+      <!-- SECTIONS -->
+      <div class="policy-sections">
+
+        <div class="policy-card js-reveal" id="section-1">
+          <span class="card-anchor" id="s1"></span>
+          <div class="card-num">01 — Who We Are</div>
+          <h2 class="card-h2">The developer behind Tankly</h2>
+          <div class="card-body">
+            <p>Tankly is an aquarium tracking app developed by <strong>Piyush Golan</strong>, When this policy says "we", "us", or "our", it means Piyush Golan operating Tankly.</p>
+            <p>Questions? Email us at <a href="mailto:golanlabs.apps@gmail.com">golanlabs.apps@gmail.com</a> — we read every message.</p>
+          </div>
+        </div>
+
+        <div class="policy-card js-reveal" data-stagger="1" id="section-2">
+          <span class="card-anchor" id="s2"></span>
+          <div class="card-num">02 — Data We Collect</div>
+          <h2 class="card-h2">Only what the app needs</h2>
+          <div class="card-body">
+            <p>We collect the minimum data required to run Tankly properly:</p>
+            <ul>
+              <li><strong>Account data</strong> — Your Google account name, email, and profile photo, obtained when you sign in via Google OAuth.</li>
+              <li><strong>Tank & aquarium data</strong> — Parameters (pH, temperature, etc.), livestock, equipment, and maintenance logs you enter.</li>
+              <li><strong>Usage data</strong> — Your daily streak count and app activity, used for the streak feature.</li>
+              <li><strong>Community data</strong> — Posts, photos, and comments you voluntarily share in the community section.</li>
+              <li><strong>Device data</strong> — Anonymous crash reports and basic diagnostics to help us fix bugs. No personally identifiable information is included.</li>
+            </ul>
+          </div>
+          <div class="card-tag">✓ Minimum viable data only</div>
+        </div>
+
+        <div class="policy-card js-reveal" id="section-3">
+          <span class="card-anchor" id="s3"></span>
+          <div class="card-num">03 — How We Use It</div>
+          <h2 class="card-h2">Core features, nothing else</h2>
+          <div class="card-body">
+            <ul>
+              <li>To provide logging, syncing, and restoring your aquarium data.</li>
+              <li>To display your streak, profile, and community contributions.</li>
+              <li>To generate AI-powered water quality suggestions (Pro only) — uses your parameter data, not your identity.</li>
+              <li>To send important account emails (subscription confirmation, deletion confirmation).</li>
+              <li>To improve app stability using anonymous crash data.</li>
+            </ul>
+            <p><strong>We never sell your data, use it for advertising, or share it with third parties for marketing.</strong></p>
+          </div>
+          <div class="card-tag">✓ No ads. No data selling. Ever.</div>
+        </div>
+
+        <div class="policy-card js-reveal" data-stagger="1" id="section-4">
+          <span class="card-anchor" id="s4"></span>
+          <div class="card-num">04 — Storage & Infrastructure</div>
+          <h2 class="card-h2">Where your data lives</h2>
+          <div class="card-body">
+            <p>Your data is stored across two cloud services:</p>
+            <ul>
+              <li><strong>Firebase (Google)</strong> — Stores your streak, tanks, parameter history, and account info. Servers located in the US/EU.</li>
+              <li><strong>Supabase (AWS)</strong> — Stores community posts, photos, and public profile data. Servers in the EU.</li>
+            </ul>
+            <p>Both services use encryption in transit (TLS) and at rest. We follow their respective data processing agreements.</p>
+          </div>
+        </div>
+
+        <div class="policy-card js-reveal" id="section-5">
+          <span class="card-anchor" id="s5"></span>
+          <div class="card-num">05 — Free vs Pro</div>
+          <h2 class="card-h2">Data handling by plan</h2>
+          <div class="card-body">
+            <ul>
+              <li><strong>Free users</strong> — Your streak and first tank are backed up to the cloud. All other tank data remains local on your device only.</li>
+              <li><strong>Pro users</strong> — All tanks, full parameter history, livestock, equipment, and profile are backed up after every significant change.</li>
+            </ul>
+            <p>In both cases, local data on your device is entirely under your control.</p>
+          </div>
+        </div>
+
+        <div class="policy-card js-reveal" data-stagger="1" id="section-6">
+          <span class="card-anchor" id="s6"></span>
+          <div class="card-num">06 — Your Rights</div>
+          <h2 class="card-h2">GDPR & general rights</h2>
+          <div class="card-body">
+            <p>You have the right to:</p>
+            <ul>
+              <li><strong>Access</strong> — Request a copy of all data we hold about you.</li>
+              <li><strong>Correction</strong> — Ask us to fix inaccurate data.</li>
+              <li><strong>Deletion</strong> — Delete your account anytime via Settings → Account → Delete account. This erases your profile, posts, photos, and auth record from our servers immediately.</li>
+              <li><strong>Portability</strong> — Request your data in a machine-readable format.</li>
+              <li><strong>Objection</strong> — Object to processing of your data for any purpose.</li>
+            </ul>
+            <p>To exercise these rights, email <a href="mailto:golanlabs.apps@gmail.com">golanlabs.apps@gmail.com</a>. We respond within 30 days.</p>
+          </div>
+          <div class="card-tag">✓ You're always in control</div>
+        </div>
+
+        <div class="policy-card js-reveal" id="section-7">
+          <span class="card-anchor" id="s7"></span>
+          <div class="card-num">07 — Children's Privacy</div>
+          <h2 class="card-h2">Under 13? Not for you.</h2>
+          <div class="card-body">
+            <p>Tankly is not directed at children under 13. We do not knowingly collect personal data from children. If you believe a child has provided us data, contact us immediately and we will delete it.</p>
+          </div>
+        </div>
+
+        <div class="policy-card js-reveal" data-stagger="1" id="section-8">
+          <span class="card-anchor" id="s8"></span>
+          <div class="card-num">08 — Third-Party Services</div>
+          <h2 class="card-h2">Who else touches your data</h2>
+          <div class="card-body">
+            <p>Tankly integrates with these services, each governed by their own privacy policy:</p>
+            <ul>
+              <li><strong>Google Sign-In</strong> — authentication. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+              <li><strong>Google Play Billing</strong> — Pro subscriptions. Payment data handled entirely by Google — we never see your card details.</li>
+              <li><strong>Firebase</strong> — cloud database and analytics. See <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy</a>.</li>
+              <li><strong>Supabase</strong> — community database. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy</a>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="policy-card js-reveal" id="section-9">
+          <span class="card-anchor" id="s9"></span>
+          <div class="card-num">09 — Policy Changes</div>
+          <h2 class="card-h2">If this policy changes</h2>
+          <div class="card-body">
+            <p>We may update this policy as Tankly evolves. We'll notify you of material changes via an in-app notice or email. Continued use of Tankly after changes constitutes acceptance of the updated policy.</p>
+          </div>
+        </div>
+
+        <div class="policy-card js-reveal" data-stagger="1" id="section-10">
+          <span class="card-anchor" id="s10"></span>
+          <div class="card-num">10 — Contact</div>
+          <h2 class="card-h2">Got a privacy question?</h2>
+          <div class="card-body">
+            <p>Email us at <a href="mailto:golanlabs.apps@gmail.com">golanlabs.apps@gmail.com</a>. We're a small indie team — we read every email and respond within a few days.</p>
+          </div>
+          <div class="card-tag">✉ golanlabs.apps@gmail.com</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-sep" aria-hidden="true"></div>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-row">
+          <div class="nav-logo" style="width:28px;height:28px;border-radius:8px;font-size:15px" aria-hidden="true">🐠</div>
+          <span class="footer-wordmark">Tankly</span>
+        </div>
+        <p>An aquarium management app built for fish keepers. Offline-first, privacy-focused, and genuinely useful.</p>
+      </div>
+      <nav class="footer-col" aria-label="App navigation">
+        <h4>App</h4>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#hiw">How it works</a>
+        <a href="index.html#plans">Plans</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Legal navigation">
+        <h4>Legal</h4>
+        <a href="tankly-privacy">Privacy Policy</a>
+        <a href="tankly-tos">Terms of Service</a>
+        <a href="delete-account">Delete Account</a>
+        <a href="waitlist-ios">iOS Waitlist</a>
+        <a href="mailto:golanlabs.apps@gmail.com">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tankly · Piyush Golan</span>
+      <span style="font-size:11px;opacity:0.4">Built with care for aquarium hobbyists</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script>
+(function(){
+  'use strict';
+
+  /* Canvas fallback */
+  function initFallbackCanvas(){
+    const canvas=document.getElementById('hero-canvas');
+    if(!canvas)return;
+    const ctx=canvas.getContext('2d');
+    let W,H,t=0,raf;
+    const dots=[];
+    function init(){
+      W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;
+      dots.length=0;const n=Math.floor(W*H/9000);
+      for(let i=0;i<n;i++)dots.push({x:Math.random()*W,y:Math.random()*H,r:0.6+Math.random()*1.6,sp:0.3+Math.random()*0.6,ph:Math.random()*Math.PI*2});
+    }
+    init();window.addEventListener('resize',init,{passive:true});
+    function draw(){raf=requestAnimationFrame(draw);ctx.clearRect(0,0,W,H);t+=0.015;
+      dots.forEach(d=>{d.y-=d.sp*0.35;if(d.y<-10){d.y=H+10;d.x=Math.random()*W;}
+        const a=0.05+0.07*(0.5+0.5*Math.sin(t*d.sp+d.ph));
+        ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle=`rgba(0,196,168,${a})`;ctx.fill();
+      });
+    }
+    draw();document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(raf);else draw()});
+  }
+  function startCanvas(){if(typeof THREE!=='undefined'){initThreeScene();}else{const t=setTimeout(initFallbackCanvas,600);window.addEventListener('load',()=>{if(typeof THREE!=='undefined'){clearTimeout(t);initThreeScene();}});}}
+  function initThreeScene(){
+    if(typeof THREE==='undefined'){initFallbackCanvas();return;}
+    const canvas=document.getElementById('hero-canvas');if(!canvas)return;
+    const renderer=new THREE.WebGLRenderer({canvas,antialias:false,alpha:true,powerPreference:'low-power'});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));renderer.setClearColor(0x000000,0);
+    const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(60,1,0.1,1000);camera.position.set(0,0,5);
+    const PC=window.innerWidth<768?900:2000;const positions=new Float32Array(PC*3);const velocities=new Float32Array(PC*3);const phases=new Float32Array(PC);
+    for(let i=0;i<PC;i++){positions[i*3]=(Math.random()-0.5)*20;positions[i*3+1]=(Math.random()-0.5)*12;positions[i*3+2]=(Math.random()-0.5)*8;velocities[i*3]=(Math.random()-0.5)*0.004;velocities[i*3+1]=Math.random()*0.006+0.001;velocities[i*3+2]=(Math.random()-0.5)*0.002;phases[i]=Math.random()*Math.PI*2;}
+    const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(positions,3));
+    const tc2=document.createElement('canvas');tc2.width=tc2.height=32;const ctx2=tc2.getContext('2d');const grd=ctx2.createRadialGradient(16,16,0,16,16,16);grd.addColorStop(0,'rgba(110,220,208,1)');grd.addColorStop(0.4,'rgba(0,196,168,0.8)');grd.addColorStop(1,'rgba(0,196,168,0)');ctx2.fillStyle=grd;ctx2.beginPath();ctx2.arc(16,16,16,0,Math.PI*2);ctx2.fill();
+    const mat=new THREE.PointsMaterial({map:new THREE.CanvasTexture(tc2),size:0.12,sizeAttenuation:true,transparent:true,opacity:0.45,depthWrite:false,blending:THREE.AdditiveBlending,color:0x00c4a8});
+    scene.add(new THREE.Points(geo,mat));
+    function onResize(){const w=window.innerWidth,h=window.innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+    onResize();window.addEventListener('resize',onResize,{passive:true});
+    let t2=0,raf2;
+    function tick(){raf2=requestAnimationFrame(tick);t2+=0.008;const pos=geo.attributes.position.array;
+      for(let i=0;i<PC;i++){const i3=i*3;pos[i3]+=velocities[i3]+Math.sin(t2*0.6+phases[i])*0.0015;pos[i3+1]+=velocities[i3+1];pos[i3+2]+=velocities[i3+2];if(pos[i3+1]>7){pos[i3+1]=-7;pos[i3]=(Math.random()-0.5)*20;}if(pos[i3]>11)pos[i3]=-11;if(pos[i3]<-11)pos[i3]=11;}
+      geo.attributes.position.needsUpdate=true;renderer.render(scene,camera);
+    }
+    tick();document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(raf2);else tick()});
+  }
+  startCanvas();
+
+  /* Nav scroll */
+  const nav=document.getElementById('nav');
+  if(nav)window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50),{passive:true});
+
+  /* Hamburger */
+  const hbg=document.getElementById('hamburgerBtn'),mm=document.getElementById('mobileMenu');
+  if(hbg&&mm){
+    hbg.addEventListener('click',()=>{const o=mm.classList.toggle('open');hbg.setAttribute('aria-expanded',String(o));mm.setAttribute('aria-hidden',String(!o));});
+    mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');hbg.setAttribute('aria-expanded','false');mm.setAttribute('aria-hidden','true');}));
+    document.addEventListener('click',e=>{if(!hbg.contains(e.target)&&!mm.contains(e.target)){mm.classList.remove('open');hbg.setAttribute('aria-expanded','false');mm.setAttribute('aria-hidden','true');}});
+  }
+
+  /* Fade in on load */
+  window.addEventListener('load',()=>{document.querySelectorAll('.js-fade').forEach(el=>{const d=parseInt(el.dataset.delay||0,10);setTimeout(()=>el.classList.add('in'),d);});});
+
+  /* Scroll reveal */
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.js-reveal').forEach(el=>obs.observe(el));
+
+  /* TOC active tracking */
+  const tocLinks=document.querySelectorAll('.toc-link');
+  const sections=document.querySelectorAll('.policy-card');
+  const tocObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id=e.target.querySelector('.card-anchor')?.id;
+        if(id){tocLinks.forEach(l=>{l.classList.toggle('active',l.getAttribute('href')==='#'+id);});}
+      }
+    });
+  },{threshold:0.4});
+  sections.forEach(s=>tocObs.observe(s));
+
+  /* Smooth scroll */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);const el=id?document.getElementById(id):null;if(!el)return;e.preventDefault();const top=el.getBoundingClientRect().top+window.scrollY-80;window.scrollTo({top,behavior:'smooth'});});});
+
+  /* Reduced motion */
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){const c=document.getElementById('hero-canvas');if(c)c.style.display='none';document.querySelectorAll('.bbl').forEach(b=>b.style.animation='none');}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Delete your Tankly account. Permanent removal of your profile, data, and subscription."/>
+<title>Tankly — Delete Account</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#04080f;--ink2:#070d18;--surface:#0a1220;
+  --panel:rgba(9,17,30,0.75);--panel2:rgba(12,21,38,0.88);
+  --edge:rgba(0,196,168,0.10);--edge2:rgba(255,255,255,0.058);
+  --teal:#00c4a8;--teal2:#6edcd0;--teal3:rgba(0,196,168,0.13);
+  --slate:#8fa8bc;--slate2:#4a6880;--white:#e8f4f0;--white2:#f4faf8;
+  --purple:#8b5cf6;--amber:#f59e0b;--blue:#3b82f6;--rose:#f43f5e;
+  --r-sm:8px;--r:14px;--r-lg:20px;--r-xl:28px;--fam:'Cabin',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--ink);color:var(--slate);font-family:var(--fam);font-size:15px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--fam);cursor:pointer;border:none;background:none}
+
+#hero-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.35}
+.bubble-layer{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.bbl{position:absolute;bottom:-50px;border-radius:50%;border:1px solid rgba(244,63,94,0.15);opacity:0;animation:bblRise linear infinite}
+.b1{left:4%;width:6px;height:6px;animation-duration:22s;animation-delay:0s}
+.b2{left:15%;width:4px;height:4px;animation-duration:28s;animation-delay:5s}
+.b3{left:28%;width:9px;height:9px;animation-duration:20s;animation-delay:9s}
+.b4{left:42%;width:5px;height:5px;animation-duration:30s;animation-delay:3s}
+.b5{left:58%;width:7px;height:7px;animation-duration:24s;animation-delay:7s}
+.b6{left:71%;width:4px;height:4px;animation-duration:26s;animation-delay:12s}
+.b7{left:84%;width:8px;height:8px;animation-duration:19s;animation-delay:2s}
+.b8{left:93%;width:5px;height:5px;animation-duration:23s;animation-delay:10s}
+@keyframes bblRise{0%{transform:translateY(0);opacity:0}5%{opacity:1}92%{opacity:0.25}100%{transform:translateY(-110vh) translateX(16px);opacity:0}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:400;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.25rem,5vw,3rem);background:rgba(4,8,15,0.55);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);border-bottom:1px solid var(--edge);transition:background 0.3s}
+nav.scrolled{background:rgba(4,8,15,0.92)}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(140deg,#00c4a8,#0a7d6e);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 0 16px rgba(0,196,168,0.32);flex-shrink:0}
+.nav-wordmark{font-family:var(--fam);font-weight:700;font-size:17px;color:var(--white);letter-spacing:-0.02em}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{padding:6px 13px;border-radius:8px;font-size:13px;font-weight:600;color:var(--slate);transition:color 0.2s,background 0.2s}
+.nav-link:hover{color:var(--white);background:rgba(255,255,255,0.05)}
+.nav-cta{margin-left:8px;padding:7px 17px;border-radius:9px;font-size:13px;font-weight:700;color:#040b10;background:var(--teal);box-shadow:0 0 20px rgba(0,196,168,0.26);transition:box-shadow 0.2s,transform 0.15s,background 0.2s}
+.nav-cta:hover{background:var(--teal2);box-shadow:0 0 32px rgba(0,196,168,0.45);transform:translateY(-1px)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;padding:6px}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--slate);border-radius:999px}
+@media(max-width:768px){.nav-links{display:none}.nav-hamburger{display:flex}}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(4,8,15,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--edge2);z-index:399;padding:1rem 1.5rem 1.5rem;flex-direction:column;gap:0.2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:15px;font-weight:600;color:var(--slate);padding:10px 0;border-bottom:1px solid var(--edge2);transition:color 0.2s}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a:hover{color:var(--teal)}
+
+.wrap{max-width:680px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);position:relative;z-index:2}
+.page{padding:120px 0 5rem;position:relative;z-index:2}
+
+/* Wave */
+.wave-sep{position:relative;z-index:2;height:1px;overflow:visible}
+.wave-sep::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(244,63,94,0.20) 30%,rgba(251,113,133,0.12) 60%,transparent);background-size:200% 100%;animation:shimmer 5s linear infinite}
+@keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+/* Reveals */
+.js-fade{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
+.js-fade.in{opacity:1;transform:translateY(0)}
+.js-reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.js-reveal.in{opacity:1;transform:translateY(0)}
+.js-reveal[data-stagger="1"]{transition-delay:0.1s}
+.js-reveal[data-stagger="2"]{transition-delay:0.2s}
+.js-reveal[data-stagger="3"]{transition-delay:0.3s}
+
+/* Hero section */
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(244,63,94,0.07);border:1px solid rgba(244,63,94,0.20);border-radius:999px;padding:5px 15px 5px 10px;font-size:12px;font-weight:600;color:#fda4af;margin-bottom:1.8rem;backdrop-filter:blur(8px)}
+.badge-pulse{width:6px;height:6px;border-radius:50%;background:var(--rose);animation:pulse 2.2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.7)}}
+.hero-h1{font-family:var(--fam);font-weight:700;font-size:clamp(2rem,5vw,3.2rem);color:var(--white);line-height:1.05;letter-spacing:-0.03em;margin-bottom:1rem}
+.hero-h1 em{font-style:italic;font-weight:700;background:linear-gradient(130deg,#f43f5e,#fb7185);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:15px;color:var(--slate);line-height:1.8;max-width:520px;margin-bottom:2.4rem}
+
+/* Warning card */
+.warn-card{background:rgba(244,63,94,0.05);border:1px solid rgba(244,63,94,0.18);border-radius:var(--r-lg);padding:1.4rem 1.6rem;margin-bottom:2rem;display:flex;gap:0.9rem;align-items:flex-start}
+.warn-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.warn-body{font-size:13.5px;color:var(--slate);line-height:1.7}
+.warn-body strong{color:#fda4af;font-weight:600}
+
+/* Steps */
+.steps-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.13em;color:var(--slate2);margin-bottom:1.1rem}
+.step-list{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem}
+.step-item{display:flex;gap:0.9rem;align-items:flex-start;padding:0.9rem 1rem;background:var(--panel);border:1px solid var(--edge2);border-radius:var(--r);backdrop-filter:blur(10px);transition:border-color 0.2s,transform 0.2s}
+.step-item:hover{border-color:rgba(0,196,168,0.15);transform:translateX(4px)}
+.step-num{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--teal),#0a7d6e);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#040b10;box-shadow:0 0 10px rgba(0,196,168,0.22);flex-shrink:0;margin-top:1px}
+.step-text{font-size:13.5px;color:var(--slate);line-height:1.6}
+.step-text strong{color:var(--white);display:block;font-size:14px;margin-bottom:2px}
+
+/* Form card */
+.form-card{background:var(--panel);border:1px solid rgba(244,63,94,0.14);border-radius:var(--r-xl);padding:2rem;backdrop-filter:blur(16px);position:relative;overflow:hidden}
+.form-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(244,63,94,0.04),transparent 60%);pointer-events:none}
+.form-card-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:0.3rem;letter-spacing:-0.01em}
+.form-card-sub{font-size:12.5px;color:var(--slate2);margin-bottom:1.4rem;line-height:1.6}
+
+.input-group{margin-bottom:1.1rem}
+.input-label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--slate2);margin-bottom:0.4rem}
+.text-input{
+  width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--edge2);
+  border-radius:11px;padding:11px 15px;font-size:14px;color:var(--white);
+  font-family:var(--fam);outline:none;transition:border-color 0.2s,box-shadow 0.2s;
+}
+.text-input::placeholder{color:var(--slate2)}
+.text-input:focus{border-color:rgba(244,63,94,0.4);box-shadow:0 0 0 3px rgba(244,63,94,0.08)}
+
+.select-input{
+  width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--edge2);
+  border-radius:11px;padding:11px 15px;font-size:14px;color:var(--slate);
+  font-family:var(--fam);outline:none;transition:border-color 0.2s,box-shadow 0.2s;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234a6880' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+}
+.select-input:focus{border-color:rgba(244,63,94,0.4);box-shadow:0 0 0 3px rgba(244,63,94,0.08)}
+.select-input option{background:#0a1220;color:var(--white)}
+
+/* Confirm checkbox */
+.confirm-row{display:flex;align-items:flex-start;gap:0.75rem;padding:0.9rem 1rem;background:rgba(244,63,94,0.04);border:1px solid rgba(244,63,94,0.12);border-radius:11px;cursor:pointer;margin-bottom:1.4rem;transition:border-color 0.2s,background 0.2s}
+.confirm-row:hover{border-color:rgba(244,63,94,0.25);background:rgba(244,63,94,0.07)}
+.confirm-row input[type=checkbox]{appearance:none;-webkit-appearance:none;width:18px;height:18px;flex-shrink:0;margin-top:1px;border:1.5px solid rgba(244,63,94,0.35);border-radius:5px;background:transparent;cursor:pointer;transition:all 0.2s;position:relative}
+.confirm-row input[type=checkbox]:checked{background:linear-gradient(135deg,var(--rose),#be123c);border-color:var(--rose)}
+.confirm-row input[type=checkbox]:checked::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;font-size:11px;font-weight:700}
+.confirm-label{font-size:12.5px;color:var(--slate);line-height:1.55}
+.confirm-label strong{color:#fda4af;font-weight:600}
+
+/* Buttons */
+.btn-delete{
+  width:100%;padding:13px;border-radius:12px;
+  background:linear-gradient(130deg,#f43f5e,#e11d48);
+  color:#fff;font-family:var(--fam);font-weight:700;font-size:14px;
+  border:none;cursor:pointer;
+  box-shadow:0 8px 28px -4px rgba(244,63,94,0.35);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all 0.25s;
+}
+.btn-delete:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 36px -4px rgba(244,63,94,0.5)}
+.btn-delete:active:not(:disabled){transform:scale(0.98)}
+.btn-delete:disabled{opacity:0.5;cursor:not-allowed}
+.btn-spinner{width:16px;height:16px;border:2px solid transparent;border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.alt-action{text-align:center;margin-top:1.2rem;font-size:12.5px;color:var(--slate2)}
+.alt-action a{color:var(--teal);transition:opacity 0.2s}
+.alt-action a:hover{opacity:0.75}
+
+/* Message */
+.msg-box{margin-top:1rem;padding:0.9rem 1.1rem;border-radius:10px;text-align:center;font-weight:600;font-size:13px;display:none}
+.msg-box.ok{background:rgba(0,196,168,0.08);border:1px solid rgba(0,196,168,0.2);color:var(--teal);display:block}
+.msg-box.err{background:rgba(244,63,94,0.08);border:1px solid rgba(244,63,94,0.2);color:#fda4af;display:block}
+
+/* In-app note */
+.inapp-note{background:var(--panel);border:1px solid var(--edge2);border-radius:var(--r-lg);padding:1.4rem 1.6rem;margin-top:2.5rem;display:flex;gap:0.9rem;align-items:flex-start}
+.inapp-icon{font-size:22px;flex-shrink:0}
+.inapp-body h3{font-size:14px;font-weight:700;color:var(--white);margin-bottom:0.3rem}
+.inapp-body p{font-size:13px;color:var(--slate);line-height:1.7}
+.inapp-body code{background:rgba(0,196,168,0.08);border:1px solid rgba(0,196,168,0.15);border-radius:5px;padding:1px 6px;font-size:12px;color:var(--teal);font-family:monospace}
+
+footer{position:relative;z-index:2;border-top:1px solid var(--edge2);padding:2.5rem clamp(1.25rem,5vw,3rem) 2rem;margin-top:5rem}
+.footer-inner{max-width:680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:12px;color:var(--slate2)}
+.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+.footer-links a{color:var(--slate2);transition:color 0.2s}
+.footer-links a:hover{color:var(--teal)}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<canvas id="hero-canvas"></canvas>
+<div class="bubble-layer" aria-hidden="true">
+  <span class="bbl b1"></span><span class="bbl b2"></span><span class="bbl b3"></span>
+  <span class="bbl b4"></span><span class="bbl b5"></span><span class="bbl b6"></span>
+  <span class="bbl b7"></span><span class="bbl b8"></span>
+</div>
+
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <a class="nav-brand" href="index.html" aria-label="Tankly home">
+    <div class="nav-logo" aria-hidden="true">🐠</div>
+    <span class="nav-wordmark">Tankly</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a class="nav-link" href="index.html#features">Features</a>
+    <a class="nav-link" href="tankly-privacy">Privacy</a>
+    <a class="nav-link" href="tankly-tos">Terms</a>
+    <a class="nav-cta" href="index.html">← Back to Tankly</a>
+  </div>
+  <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+  <a href="index.html#features">Features</a>
+  <a href="tankly-privacy">Privacy</a>
+  <a href="tankly-tos">Terms</a>
+  <a href="index.html">← Back to Tankly</a>
+</div>
+
+<div class="page">
+  <div class="wrap">
+
+    <div class="hero-badge js-fade" data-delay="0">
+      <span class="badge-pulse"></span>
+      Account · Data deletion
+    </div>
+
+    <h1 class="hero-h1 js-fade" data-delay="80">
+      Delete your<br><em>Tankly account.</em>
+    </h1>
+    <p class="hero-sub js-fade" data-delay="140">
+      You can request account deletion here or directly inside the app. Either way, your data is removed from our servers permanently and immediately.
+    </p>
+
+    <!-- Warning -->
+    <div class="warn-card js-reveal">
+      <div class="warn-icon">⚠️</div>
+      <div class="warn-body">
+        <strong>This cannot be undone.</strong> Deleting your account permanently removes your profile, all community posts, uploaded photos, and your authentication record from our servers. Your local tank data on your device is not affected — only cloud data is removed.
+      </div>
+    </div>
+
+    <!-- In-app steps -->
+    <div class="js-reveal" data-stagger="1">
+      <div class="steps-title">Fastest way — inside the app</div>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Open Settings</strong>Tap your profile icon → Settings in the bottom tab bar.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Go to Account</strong>Scroll to Account section and tap "Account settings".</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>Tap Delete Account</strong>Confirm the deletion. Your account is removed immediately.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave-sep" aria-hidden="true"></div>
+
+    <!-- Web form -->
+    <div class="form-card js-reveal" data-stagger="2">
+      <div class="form-card-title">Request deletion via web</div>
+      <div class="form-card-sub">Fill in your details and we'll process the deletion within 30 days. You'll receive a confirmation email.</div>
+
+      <div class="input-group">
+        <label class="input-label" for="del-email">Email address on your account</label>
+        <input type="email" id="del-email" class="text-input" placeholder="you@email.com" autocomplete="email"/>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label" for="del-reason">Reason for leaving (optional)</label>
+        <select id="del-reason" class="select-input">
+          <option value="">Select a reason…</option>
+          <option value="not-using">I'm not using Tankly anymore</option>
+          <option value="switching">Switching to a different app</option>
+          <option value="privacy">Privacy concerns</option>
+          <option value="bugs">Too many bugs or issues</option>
+          <option value="no-fish">I no longer keep fish</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <label class="confirm-row" id="confirmRow">
+        <input type="checkbox" id="confirmCheck"/>
+        <span class="confirm-label">
+          <strong>I understand this is permanent.</strong> All my community posts, photos, and profile data will be deleted from Tankly's servers immediately.
+        </span>
+      </label>
+
+      <button class="btn-delete" id="deleteBtn" disabled>
+        <span id="deleteBtnText">🗑 Request Account Deletion</span>
+        <div class="btn-spinner" id="deleteSpinner"></div>
+      </button>
+
+      <div class="msg-box" id="msgBox"></div>
+
+      <div class="alt-action">
+        Changed your mind? <a href="index.html">Go back to Tankly →</a>
+      </div>
+    </div>
+
+    <!-- In-app note -->
+    <div class="inapp-note js-reveal" data-stagger="3">
+      <div class="inapp-icon">💡</div>
+      <div class="inapp-body">
+        <h3>Prefer to do it in the app?</h3>
+        <p>Navigate to <code>Settings → Account → Delete account</code> for an instant, no-wait deletion. The app removes all server data immediately upon confirmation.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Tankly · Piyush Golan</span>
+    <div class="footer-links">
+      <a href="tankly-privacy">Privacy</a>
+      <a href="tankly-tos">Terms</a>
+      <a href="mailto:golanlabs.apps@gmail.com">Contact</a>
+      <a href="index.html">Home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script>
+// Supabase URL injected by build.js
+const SB_URL  = '__SUPABASE_URL__';
+const SB_ANON = '__SUPABASE_ANON_KEY__';
+
+(function(){
+  'use strict';
+
+  /* Canvas */
+  function initFallbackCanvas(){const canvas=document.getElementById('hero-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');let W,H,t=0,raf;const dots=[];function init(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;dots.length=0;const n=Math.floor(W*H/12000);for(let i=0;i<n;i++)dots.push({x:Math.random()*W,y:Math.random()*H,r:0.5+Math.random()*1.4,sp:0.2+Math.random()*0.5,ph:Math.random()*Math.PI*2});}init();window.addEventListener('resize',init,{passive:true});function draw(){raf=requestAnimationFrame(draw);ctx.clearRect(0,0,W,H);t+=0.015;dots.forEach(d=>{d.y-=d.sp*0.3;if(d.y<-10){d.y=H+10;d.x=Math.random()*W;}const a=0.04+0.05*(0.5+0.5*Math.sin(t*d.sp+d.ph));ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle=`rgba(244,63,94,${a})`;ctx.fill();});} draw();document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(raf);else draw()});}
+  function startCanvas(){setTimeout(initFallbackCanvas,600);}
+  startCanvas();
+
+  /* Nav */
+  const nav=document.getElementById('nav');if(nav)window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50),{passive:true});
+  const hbg=document.getElementById('hamburgerBtn'),mm=document.getElementById('mobileMenu');if(hbg&&mm){hbg.addEventListener('click',()=>{const o=mm.classList.toggle('open');hbg.setAttribute('aria-expanded',String(o));mm.setAttribute('aria-hidden',String(!o));});mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');hbg.setAttribute('aria-expanded','false');mm.setAttribute('aria-hidden','true');}));document.addEventListener('click',e=>{if(!hbg.contains(e.target)&&!mm.contains(e.target)){mm.classList.remove('open');hbg.setAttribute('aria-expanded','false');mm.setAttribute('aria-hidden','true');}});}
+
+  /* Reveals */
+  window.addEventListener('load',()=>{document.querySelectorAll('.js-fade').forEach(el=>{const d=parseInt(el.dataset.delay||0,10);setTimeout(()=>el.classList.add('in'),d);});});
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:0.06,rootMargin:'0px 0px -20px 0px'});document.querySelectorAll('.js-reveal').forEach(el=>obs.observe(el));
+
+  /* Form logic */
+  const emailInput=document.getElementById('del-email');
+  const confirmCheck=document.getElementById('confirmCheck');
+  const deleteBtn=document.getElementById('deleteBtn');
+  const deleteBtnText=document.getElementById('deleteBtnText');
+  const deleteSpinner=document.getElementById('deleteSpinner');
+  const msgBox=document.getElementById('msgBox');
+
+  function updateBtn(){
+    const ok=emailInput.value.includes('@')&&confirmCheck.checked;
+    deleteBtn.disabled=!ok;
+  }
+  emailInput.addEventListener('input',updateBtn);
+  confirmCheck.addEventListener('change',updateBtn);
+
+  deleteBtn.addEventListener('click',async()=>{
+    const email=emailInput.value.trim();
+    if(!email||!email.includes('@')){showMsg('Please enter a valid email address.','err');return;}
+    if(!confirmCheck.checked){showMsg('Please confirm you understand this is permanent.','err');return;}
+
+    deleteBtnText.style.opacity='0.6';deleteSpinner.style.display='inline-block';deleteBtn.disabled=true;
+
+    try{
+      // If Supabase is configured, log the deletion request
+      if(SB_URL&&!SB_URL.includes('__')){
+        await fetch(`${SB_URL}/rest/v1/deletion_requests`,{
+          method:'POST',
+          headers:{'Content-Type':'application/json','apikey':SB_ANON,'Authorization':`Bearer ${SB_ANON}`,'Prefer':'return=minimal'},
+          body:JSON.stringify({email,reason:document.getElementById('del-reason').value||null,requested_at:new Date().toISOString()}),
+        });
+      }
+      showMsg('✅ Deletion request received. We\'ll process it within 30 days and send confirmation to your email.','ok');
+      emailInput.value='';confirmCheck.checked=false;updateBtn();
+    }catch(err){
+      // Fallback to mailto
+      const subject=encodeURIComponent('[Tankly] Account Deletion Request');
+      const body=encodeURIComponent(`Please delete my Tankly account.\n\nEmail: ${email}\nReason: ${document.getElementById('del-reason').value||'Not specified'}\nSubmitted: ${new Date().toUTCString()}`);
+      window.open(`mailto:golanlabs.apps@gmail.com?subject=${subject}&body=${body}`,'_blank');
+      showMsg('📬 Email client opened. Please send the draft to complete your request.','ok');
+    }finally{
+      deleteBtnText.style.opacity='1';deleteSpinner.style.display='none';
+    }
+  });
+
+  function showMsg(text,type){
+    msgBox.textContent=text;msgBox.className=`msg-box ${type}`;
+    if(type==='ok')setTimeout(()=>{msgBox.className='msg-box';msgBox.style.display='none';},9000);
+  }
+
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){const c=document.getElementById('hero-canvas');if(c)c.style.display='none';document.querySelectorAll('.bbl').forEach(b=>b.style.animation='none');}
+})();
+</script>
+</body>
+</html>

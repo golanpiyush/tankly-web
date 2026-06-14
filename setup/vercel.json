@@ -1,0 +1,13 @@
+{
+  "buildCommand": "node build.js",
+  "outputDirectory": ".",
+  "rewrites": [
+    { "source": "/tankly-privacy",  "destination": "/tankly-privacy.html"  },
+    { "source": "/tankly-tos",      "destination": "/tankly-tos.html"      },
+    { "source": "/submit_request",  "destination": "/submit_request.html"  },
+    { "source": "/delete-account",  "destination": "/delete-account.html"  },
+    { "source": "/waitlist-ios",    "destination": "/waitlist-ios.html"    },
+    { "source": "/(.*)",            "destination": "/index.html"           }
+  ],
+  "cleanUrls": true
+}

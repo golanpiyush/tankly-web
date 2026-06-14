@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Tankly — Smart aquarium care in your pocket. Track water parameters, monitor livestock, and get AI-powered insights for freshwater, reef, planted and coldwater tanks."/>
+<title>Tankly — Your Aquarium, Smarter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="homecss/style.css"/>
+</head>
+<body>
+
+<!-- ── CANVAS ── -->
+<canvas id="hero-canvas"></canvas>
+
+<!-- ── BUBBLES ── -->
+<div class="bubble-layer" aria-hidden="true">
+  <span class="bbl b1"></span><span class="bbl b2"></span><span class="bbl b3"></span>
+  <span class="bbl b4"></span><span class="bbl b5"></span><span class="bbl b6"></span>
+  <span class="bbl b7"></span><span class="bbl b8"></span><span class="bbl b9"></span>
+  <span class="bbl b10"></span><span class="bbl b11"></span><span class="bbl b12"></span>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <a class="nav-brand" href="#" aria-label="Tankly home">
+    <div class="nav-logo" aria-hidden="true">🐠</div>
+    <span class="nav-wordmark">Tankly</span>
+  </a>
+
+  <div class="nav-links" id="navLinks">
+    <a class="nav-link" href="#features">Features</a>
+    <a class="nav-link" href="#hiw">How it works</a>
+    <a class="nav-link" href="#plans">Plans</a>
+    <a class="nav-link" href="#faq">FAQ</a>
+    <a class="nav-link" href="legal/tankly-privacy.html">Privacy</a>
+    <a class="nav-link" href="legal/tankly-tos.html">Terms</a>
+    <a class="nav-link" href="waitlistIOs/waitlist-ios.html">iOS Waitlist</a>
+    <a class="nav-cta" href="#">Get Tankly</a>
+  </div>
+
+  <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+  <a href="#features">Features</a>
+  <a href="#hiw">How it works</a>
+  <a href="#plans">Plans</a>
+  <a href="#faq">FAQ</a>
+  <a href="legal/tankly-privacy.html">Privacy</a>
+  <a href="legal/tankly-tos.html">Terms</a>
+  <a href="waitlistIOs/waitlist-ios.html">iOS Waitlist</a>
+  <a href="#" class="mobile-cta">Get Tankly →</a>
+</div>
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-inner">
+    <div class="hero-badge js-fade" data-delay="0">
+      <span class="badge-pulse"></span>
+      🐠 Aquarium Manager · Android Beta
+    </div>
+
+    <h1 class="hero-h1 js-fade" data-delay="80">
+      Your aquarium,<br>
+      <em>understood.</em>
+    </h1>
+
+    <p class="hero-sub js-fade" data-delay="160">
+      Track water parameters, monitor livestock, log maintenance — and get personalized insights built around your specific tank. For beginners to reef obsessives.
+    </p>
+
+    <div class="hero-actions js-fade" data-delay="240">
+      <a href="#" class="btn-primary">🐠 Download Free</a>
+      <a href="#features" class="btn-ghost">
+        Explore Features
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Phone showcase -->
+    <div class="hero-phones js-fade" data-delay="340" id="heroPhones">
+      <div class="phone-wrap phone-left">
+        <div class="phone-frame" data-float="slow">
+          <div class="phone-notch"><div class="phone-pill"></div></div>
+          <div class="phone-screen">
+            <div class="ps-top">
+              <div class="ps-greeting">Good morning</div>
+              <div class="ps-title">My Tanks</div>
+            </div>
+            <div class="ps-card">
+              <div class="ps-card-head">
+                <div>
+                  <div class="ps-card-name">Ruikin Palace</div>
+                  <div class="ps-card-type">Coldwater · 5G</div>
+                </div>
+                <div class="ps-health-badge">Thriving</div>
+              </div>
+              <div class="ps-health-bar"><div class="ps-health-fill" style="width:100%"></div></div>
+              <div class="ps-score-row">
+                <div class="ps-score-num">100<span>%</span></div>
+                <div class="ps-score-label">Tank Health</div>
+              </div>
+            </div>
+            <div class="ps-params-grid">
+              <div class="ps-param">
+                <div class="ps-param-k">pH</div>
+                <div class="ps-param-v good">7.4</div>
+              </div>
+              <div class="ps-param">
+                <div class="ps-param-k">Ammonia</div>
+                <div class="ps-param-v good">0.0</div>
+              </div>
+              <div class="ps-param">
+                <div class="ps-param-k">Nitrate</div>
+                <div class="ps-param-v warn">18</div>
+              </div>
+              <div class="ps-param">
+                <div class="ps-param-k">Temp</div>
+                <div class="ps-param-v good">64.8°F</div>
+              </div>
+            </div>
+            <div class="ps-fish-row">
+              <div class="ps-chip">🐡 Ryukin ×3</div>
+              <div class="ps-chip">🦐 Amano ×2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-wrap phone-right">
+        <div class="phone-frame phone-frame--secondary" data-float="fast">
+          <div class="phone-notch"><div class="phone-pill"></div></div>
+          <div class="phone-screen phone-screen--alt">
+            <div class="ps-chart-header">Parameter History</div>
+            <div class="ps-chart-val">7.4 <span class="ps-chart-delta">+0.08</span></div>
+            <div class="ps-chart-label">pH · Optimal</div>
+            <div class="ps-chart-area">
+              <svg viewBox="0 0 160 60" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#00c4a8" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#00c4a8" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0 50 C20 48 40 44 60 40 C80 36 100 32 120 25 C140 18 155 12 160 10 L160 60 L0 60Z" fill="url(#cg)"/>
+                <path d="M0 50 C20 48 40 44 60 40 C80 36 100 32 120 25 C140 18 155 12 160 10" fill="none" stroke="#00c4a8" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="ps-stats-row">
+              <div class="ps-stat"><div class="ps-stat-k">MIN</div><div class="ps-stat-v">7.2</div></div>
+              <div class="ps-stat"><div class="ps-stat-k">MAX</div><div class="ps-stat-v">7.4</div></div>
+              <div class="ps-stat"><div class="ps-stat-k">AVG</div><div class="ps-stat-v">7.3</div></div>
+              <div class="ps-stat"><div class="ps-stat-k">STABILITY</div><div class="ps-stat-v teal">90%</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-glow"></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue js-fade" data-delay="600" aria-label="Scroll down">
+    <span>scroll</span>
+    <div class="scroll-cue-line"></div>
+  </div>
+</section>
+
+<div class="wave-sep" aria-hidden="true"></div>
+
+<!-- ════════════════════════════════════════
+     FEATURES
+════════════════════════════════════════ -->
+<section id="features" aria-label="Features">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow js-reveal">Features</div>
+      <h2 class="section-h2 js-reveal" data-stagger="1">Built for real fish keepers.<br><em>No filler.</em></h2>
+      <p class="section-lead js-reveal" data-stagger="2">Tankly is purpose-built for the aquarium hobby. Comprehensive enough for reef obsessives, approachable for beginners setting up their first tank.</p>
+    </div>
+
+    <div class="feature-grid">
+
+      <!-- BIG: Parameter logging -->
+      <div class="f-card f-card--wide js-reveal">
+        <div class="f-icon f-icon--teal" aria-hidden="true">🧪</div>
+        <h3 class="f-title">Real-time Parameter Logging</h3>
+        <p class="f-desc">Log pH, ammonia, nitrite, nitrate, temperature, hardness, and more. Visual history graphs surface trends over days, weeks, and months. Spot dangerous spikes before they hurt your fish.</p>
+        <div class="param-vis" aria-hidden="true">
+          <div class="p-row"><span class="p-key">pH</span><div class="p-bar"><div class="p-fill" style="width:72%;background:linear-gradient(90deg,#00c4a8,#6edcd0)"></div></div><span class="p-val">7.2</span></div>
+          <div class="p-row"><span class="p-key">NH₃</span><div class="p-bar"><div class="p-fill" style="width:8%;background:linear-gradient(90deg,#10b981,#34d399)"></div></div><span class="p-val">0.0</span></div>
+          <div class="p-row"><span class="p-key">NO₂</span><div class="p-bar"><div class="p-fill" style="width:15%;background:linear-gradient(90deg,#f59e0b,#fcd34d)"></div></div><span class="p-val">0.1</span></div>
+          <div class="p-row"><span class="p-key">NO₃</span><div class="p-bar"><div class="p-fill" style="width:44%;background:linear-gradient(90deg,#8b5cf6,#c4b5fd)"></div></div><span class="p-val">18</span></div>
+          <div class="p-row"><span class="p-key">°C</span><div class="p-bar"><div class="p-fill" style="width:66%;background:linear-gradient(90deg,#3b82f6,#93c5fd)"></div></div><span class="p-val">26°</span></div>
+        </div>
+      </div>
+
+      <!-- AI -->
+      <div class="f-card js-reveal" data-stagger="1">
+        <div class="f-icon f-icon--purple" aria-hidden="true">🧠</div>
+        <h3 class="f-title">AI Water Insights</h3>
+        <p class="f-desc">Pro users get intelligent recommendations tuned to their specific tank type, livestock mix, and parameter history. Catch problems before they escalate.</p>
+      </div>
+
+      <!-- Cloud -->
+      <div class="f-card js-reveal" data-stagger="2">
+        <div class="f-icon f-icon--blue" aria-hidden="true">📡</div>
+        <h3 class="f-title">Seamless Cloud Sync</h3>
+        <p class="f-desc">Switch phones without losing a single log. Your tanks, history, and settings follow you automatically.</p>
+        <div class="f-tag">✓ Offline-first architecture</div>
+      </div>
+
+      <!-- Livestock -->
+      <div class="f-card js-reveal">
+        <div class="f-icon f-icon--teal" aria-hidden="true">🐠</div>
+        <h3 class="f-title">Livestock Manager</h3>
+        <p class="f-desc">Track every fish, coral, and invertebrate. Log additions, losses, and notes with dates. Build your complete stocking history over time.</p>
+      </div>
+
+      <!-- Offline -->
+      <div class="f-card js-reveal" data-stagger="1">
+        <div class="f-icon f-icon--amber" aria-hidden="true">🔋</div>
+        <h3 class="f-title">Works 100% Offline</h3>
+        <p class="f-desc">Every log saves instantly on-device. No internet needed — ever. Tankly syncs silently in the background when you reconnect.</p>
+      </div>
+
+      <!-- Maintenance -->
+      <div class="f-card js-reveal">
+        <div class="f-icon f-icon--teal" aria-hidden="true">🔧</div>
+        <h3 class="f-title">Maintenance Reminders</h3>
+        <p class="f-desc">Set recurring schedules for water changes, filter cleanings, and dosing.</p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="f-card js-reveal" data-stagger="1">
+        <div class="f-icon f-icon--blue" aria-hidden="true">🖼️</div>
+        <h3 class="f-title">Tank Photo Timeline</h3>
+        <p class="f-desc">Document your tank's evolution. Attach live parameters to each photo snapshot.</p>
+      </div>
+
+      <!-- Community -->
+      <div class="f-card js-reveal" data-stagger="2">
+        <div class="f-icon f-icon--purple" aria-hidden="true">👥</div>
+        <h3 class="f-title">Community Feed</h3>
+        <p class="f-desc">Share builds, ask questions, and browse other hobbyists' setups — inside the app.</p>
+      </div>
+
+      <!-- Health Score -->
+      <div class="f-card js-reveal" data-stagger="3">
+        <div class="f-icon f-icon--rose" aria-hidden="true">❤️</div>
+        <h3 class="f-title">Tank Health Score</h3>
+        <p class="f-desc">A single 0–100 score calibrated to your tank type, with tier-based biological accuracy.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="wave-sep" aria-hidden="true"></div>
+
+<!-- ════════════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════════ -->
+<section id="hiw" aria-label="How it works">
+  <div class="wrap">
+    <div class="hiw-grid">
+      <div class="hiw-left">
+        <div class="eyebrow js-reveal">How it works</div>
+        <h2 class="section-h2 js-reveal" data-stagger="1">Simple to start.<br><em>Powerful inside.</em></h2>
+        <p class="section-lead js-reveal" data-stagger="2">Three steps from first launch to a fully synced, insight-aware aquarium companion.</p>
+
+        <div class="hiw-steps">
+          <div class="hiw-step js-reveal" data-stagger="1">
+            <div class="hiw-num" aria-hidden="true">1</div>
+            <div>
+              <h3 class="hiw-step-title">Everything saves locally first</h3>
+              <p class="hiw-step-desc">Log parameters, add livestock, run the app entirely offline. All data is stored on-device instantly — no internet required, ever.</p>
+            </div>
+          </div>
+          <div class="hiw-step js-reveal" data-stagger="2">
+            <div class="hiw-num" aria-hidden="true">2</div>
+            <div>
+              <h3 class="hiw-step-title">Sign in to unlock the cloud</h3>
+              <p class="hiw-step-desc">Google Sign-In links your account to Firebase and Supabase. Streaks, community, and all your tank data sync automatically.</p>
+            </div>
+          </div>
+          <div class="hiw-step js-reveal" data-stagger="3">
+            <div class="hiw-num" aria-hidden="true">3</div>
+            <div>
+              <h3 class="hiw-step-title">New device — instant restore</h3>
+              <p class="hiw-step-desc">Sign in with the same Google account. Tankly pulls your tanks, parameters, and history from the cloud in seconds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sync diagram card -->
+      <div class="sync-card js-reveal" data-stagger="2">
+        <div class="sync-title">
+          <span class="sync-dot"></span>
+          Live sync flow
+        </div>
+        <div class="flow-list" role="list">
+          <div class="flow-node" role="listitem">
+            <div class="flow-dot fd-teal"></div>
+            <div class="flow-text"><strong>App opens</strong> — local save in &lt;50ms</div>
+          </div>
+          <div class="flow-connector" aria-hidden="true"></div>
+          <div class="flow-node" role="listitem">
+            <div class="flow-dot fd-purple"></div>
+            <div class="flow-text"><strong>Google Sign-In</strong> — identity linked</div>
+          </div>
+          <div class="flow-connector" aria-hidden="true"></div>
+          <div class="flow-node" role="listitem">
+            <div class="flow-dot fd-amber"></div>
+            <div class="flow-text"><strong>Firebase</strong> — streak, tanks, history</div>
+          </div>
+          <div class="flow-connector" aria-hidden="true"></div>
+          <div class="flow-node" role="listitem">
+            <div class="flow-dot fd-blue"></div>
+            <div class="flow-text"><strong>Supabase</strong> — community &amp; photos</div>
+          </div>
+          <div class="flow-connector" aria-hidden="true"></div>
+          <div class="flow-node" role="listitem">
+            <div class="flow-dot fd-green"></div>
+            <div class="flow-text"><strong>New device</strong> — fully restored ✓</div>
+          </div>
+        </div>
+        <div class="backed-grid">
+          <div class="backed-item">🧪 Parameters</div>
+          <div class="backed-item">🐠 Livestock</div>
+          <div class="backed-item">🔧 Equipment</div>
+          <div class="backed-item">🖼️ Photos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-sep" aria-hidden="true"></div>
+
+<!-- ════════════════════════════════════════
+     PLANS
+════════════════════════════════════════ -->
+<section id="plans" aria-label="Plans">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow js-reveal">Plans</div>
+      <h2 class="section-h2 js-reveal" data-stagger="1">Start free.<br><em>Go Pro when you're ready.</em></h2>
+      <p class="section-lead js-reveal" data-stagger="2">No tricks. The free plan is genuinely useful. Pro unlocks everything for serious hobbyists.</p>
+    </div>
+
+    <div class="plans-grid">
+      <!-- Free -->
+      <div class="plan-card plan-card--free js-reveal">
+        <div class="plan-badge plan-badge--free">Free</div>
+        <div class="plan-name">Hobbyist</div>
+        <p class="plan-desc">Everything you need to get started. No credit card, no time limit.</p>
+        <ul class="plan-features" aria-label="Free plan features">
+          <li class="feat-on"><span aria-hidden="true">✓</span> 1 tank</li>
+          <li class="feat-on"><span aria-hidden="true">✓</span> All parameter types</li>
+          <li class="feat-on"><span aria-hidden="true">✓</span> Streaks &amp; achievements (Local)</li>
+          <li class="feat-on"><span aria-hidden="true">✓</span> 6 photos per tank per month</li>
+          <li class="feat-on"><span aria-hidden="true">✓</span> Read-only community access</li>
+          <li class="feat-on"><span aria-hidden="true">✓</span> Smart tank health</li>
+          <li class="feat-off"><span aria-hidden="true">–</span> Limited species database</li>
+          <li class="feat-off"><span aria-hidden="true">–</span> Cloud backup</li>
+          <li class="feat-off"><span aria-hidden="true">–</span> Fully Local</li>
+          <li class="feat-off"><span aria-hidden="true">–</span> AI water insights</li>
+          <li class="feat-off"><span aria-hidden="true">–</span> Full cross-device sync</li>
+        </ul>
+      </div>
+
+      <!-- Pro -->
+      <div class="plan-card plan-card--pro js-reveal" data-stagger="1">
+        <div class="plan-badge plan-badge--pro">💎 Pro</div>
+        <div class="plan-name">Hobbyist Pro</div>
+        <p class="plan-desc">Everything unlocked for the dedicated aquarist. Available on Google Play.</p>
+        <ul class="plan-features" aria-label="Pro plan features">
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> Unlimited tanks</li>
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> All parameter types</li>
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> Streaks &amp; Achievements (Synced)</li>
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> Unlimited photos + timeline</li>
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> Full community access</li>
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> Smart tank health + insights</li>
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> Full species database</li>
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> Complete cloud backup</li>
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> Everything synced with cloud</li>
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> AI water quality insights</li>
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> Priority support</li>
+          <li class="feat-on feat-on--pro"><span aria-hidden="true">✓</span> Full cross-device sync</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="plans-note js-reveal" data-stagger="3">
+      📱 Available on Google Play · Subscription managed via Google Play Billing
+    </p>
+  </div>
+</section>
+
+<div class="wave-sep" aria-hidden="true"></div>
+
+<!-- ════════════════════════════════════════
+     FAQ
+════════════════════════════════════════ -->
+<section id="faq" aria-label="Frequently asked questions">
+  <div class="wrap">
+    <div class="faq-layout">
+
+      <div class="faq-left">
+        <div class="eyebrow js-reveal">FAQ</div>
+        <h2 class="section-h2 js-reveal" data-stagger="1">Got<br><em>questions?</em></h2>
+        <p class="section-lead js-reveal" data-stagger="2">Everything you need to know before downloading. Can't find an answer? Email us directly.</p>
+        <a href="mailto:golanlabs.apps@gmail.com" class="faq-contact js-reveal" data-stagger="3">
+          ✉ golanlabs.apps@gmail.com →
+        </a>
+        <div class="js-reveal" data-stagger="4" style="margin-top:1rem">
+          <a href="tankly-home.html#hiw" class="faq-doc-link">→ Legal &amp; How it Works docs</a>
+        </div>
+      </div>
+
+      <div class="faq-right js-reveal" data-stagger="1">
+
+        <span class="faq-group-label">Sync &amp; data</span>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q">Does Tankly work offline?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-pill pill-sync">Sync</div>
+            <p>Yes — everything you log saves instantly on your device. No internet needed at all. Cloud sync runs silently in the background whenever you're connected.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q">What gets backed up automatically?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-pill pill-sync">Sync</div>
+            <p>Free users get their streak and first tank backed up. Pro users get everything — all tanks, full parameter history, livestock, equipment, and profile — backed up after every significant change.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q">How do I restore data on a new phone?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-pill pill-sync">Sync</div>
+            <p>Just sign in with the same Google account. Tankly detects your plan, pulls your data from the cloud, and restores it automatically. No manual steps.</p>
+          </div>
+        </div>
+
+        <span class="faq-group-label">Pro plan</span>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q">What does Pro include?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-pill pill-pro">Pro</div>
+            <p>Unlimited tanks, full cross-device sync, AI water quality insights, unlimited photos with timeline view, priority support, and early access to new features.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q">What happens to my data if I cancel Pro?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-pill pill-pro">Pro</div>
+            <p>Your data stays on your device. You lose access to multi-tank management and full cloud sync, but your existing logs and history are never deleted — ever.</p>
+          </div>
+        </div>
+
+        <span class="faq-group-label">Your data</span>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q">Is my tank data private?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-pill pill-data">Data</div>
+            <p>Yes. Your tank parameters, livestock, and history are private to your account. Only community posts and your public profile are visible to other users. We never sell your data.</p>
+          </div>
+        </div>
+
+        <span class="faq-group-label">Account</span>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q">Do I need an account to use Tankly?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-pill pill-acct">Account</div>
+            <p>No. Tankly works fully offline without signing in. A Google account is only needed for cloud backup and community features.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q">How do I delete my account?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-pill pill-acct">Account</div>
+            <p>Go to Settings → Account → Delete account. This permanently removes your profile, posts, photos, and authentication record from our servers immediately.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-sep" aria-hidden="true"></div>
+
+<!-- ════════════════════════════════════════
+     CTA
+════════════════════════════════════════ -->
+<section id="cta" aria-label="Download call to action">
+  <div class="wrap">
+    <div class="cta-card js-reveal">
+      <div class="cta-fish" aria-hidden="true">🐠</div>
+      <h2 class="cta-title">Your fish deserve<br><em>better care.</em></h2>
+      <p class="cta-sub">Download Tankly free. No credit card, no lock-in — just a smarter way to manage your aquarium.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn-primary">🐠 Download Tankly Free</a>
+        <a href="tankly-home.html" class="btn-ghost">View Docs →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-row">
+          <div class="nav-logo" style="width:28px;height:28px;border-radius:8px;font-size:15px" aria-hidden="true">🐠</div>
+          <span class="footer-wordmark">Tankly</span>
+        </div>
+        <p>An aquarium management app built for fish keepers. Offline-first, privacy-focused, and genuinely useful — whether you keep a single betta or a full reef system.</p>
+      </div>
+      <nav class="footer-col" aria-label="App navigation">
+        <h4>App</h4>
+        <a href="#features">Features</a>
+        <a href="#hiw">How it works</a>
+        <a href="#plans">Plans</a>
+        <a href="#faq">FAQ</a>
+        <a href="submit_request">Suggest a Feature</a>
+      </nav>
+      <nav class="footer-col" aria-label="Legal navigation">
+        <h4>Legal</h4>
+        <a href="legal/tankly-privacy.html">Privacy Policy</a>
+        <a href="legal/tankly-tos.html">Terms of Service</a>
+        <a href="deleteAcc/delete-account.html">Delete Account</a>
+        <a href="waitlistIOs/waitlist-ios.html">iOS Waitlist</a>
+        <a href="mailto:golanlabs.apps@gmail.com">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tankly · Piyush Golan · India</span>
+      <span class="footer-credit">Built with care for aquarium hobbyists</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="homejs/main.js" defer></script>
+</body>
+</html>
